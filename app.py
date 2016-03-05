@@ -53,13 +53,8 @@ def index():
 	print('YEEZY')
 	return render_template('index.html')
 
-@app.route('/init')
-def init():
-	car = lyrics.getAllLyrics()
-	return 'done'
 
-
-@app.route('/api/title/<name>')
+@app.route('/api/track/<name>')
 def title(name):
 	cur = db.kanye.find({"title": name})
 	if cur:
@@ -72,27 +67,15 @@ def title(name):
 @app.route('/api/album/<name>')
 def album(name):
 	cur = db.kanye.find({"album": name})
-	ret = []
+	ret = {'result': []}
 	for doc in cur:
 		doc.pop("_id", None)
-		ret.append(doc)
+		ret['result'].append(doc)
 	if ret:
-		return json.dumps(ret)
+		return jsonify(ret)
 	else:
 		return jsonify(title= None, year=None, album=None, lyrics=None), 404
 
-
-@app.route('/api/year/<year>')
-def year(year):
-	cur = db.kanye.find({"year": year})
-	ret = []
-	for doc in cur:
-		doc.pop("_id", None)
-		ret.append(doc)
-	if ret:
-		return json.dumps(ret)
-	else:
-		return jsonify(title= None, year=None, album=None, lyrics=None), 404
 
 @app.route('/api/all')
 def all():
@@ -122,6 +105,11 @@ def lyr():
         else:
                 return jsonify(title= None, year=None, album=None, lyrics=None), 404
 
+
+@app.route('/')
+def index():
+	print('YEEZY')
+	return render_template('docs.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

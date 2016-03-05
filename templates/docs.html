@@ -1,0 +1,207 @@
+<html>
+<head>
+	<link href='https://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+	<style>
+	video#bgvid { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(kanye.jpg) no-repeat;
+    background-size: cover; 
+
+    opacity: 0.4;
+}
+	
+	.navbar {
+		padding-top: 1vh;
+		height: 8vh;
+		box-shadow: 0px 5px 80px rgba(0, 0, 0, 0.28);
+	}
+
+	.reddish{
+		color: rgb(170,72,72);
+	}
+
+	.white {
+		color: white;
+		text-shadow: 0px 5px 20px rgba(0, 0, 0, 0.98);
+	}
+
+	.center {
+	}
+
+	.cont{
+    	margin-top: 23vh;
+    	margin-left: 36vw;
+	}
+
+	.desc{
+		margin-top: 2vh;
+    	margin-left: 34.1vw;
+	}
+
+	.smaller{
+		font-size: 24px;
+		font-family: 'Lato', sans-serif;
+	}
+
+	.big {
+		font-size: 80px;
+		font-family: 'Lato', sans-serif;
+	}
+
+	.two {
+		margin-top: 100vh;
+		background-color: white;
+	}
+
+	.vid{
+		height: 100vh;
+		width: 100vw;
+	}
+	.blo {
+		height: 40vh;
+		background-color: white;
+		margin-bottom: 50px;
+	}
+	.but {
+		margin-left: 46vw;
+		margin-top: 29vh;
+	}
+	.hljs-attribute{
+		color: rgb(170,72,72);
+	}
+	.hljs-value{
+		color: #008080;
+	}
+	.topper{
+		margin-top: 40px;
+		margin-bottom: 40px;
+	}
+	</style>
+
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</head>
+<body onuload="kill()">
+	<div class="navbar navbar-default navbar-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="" onclick="kill()"><span class="reddish">KanyeRest</span></a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/about" onClick="kill()">About</a></li>
+        <li><a href="/docs" onClick="kill()">Docs</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+<div class="container marketing topper">
+	<article id="get-album" class="api-docs-article ">
+					<h2>Get album</h2>
+					<hr>
+					<h3>
+						<span class="label label-info">GET</span>
+						::
+						<code>api/album/&lt;name&gt;</code>
+					</h3>
+					<h3>
+						This endpoint returns all tracks on the specified album.
+					</h3>
+
+					<ul class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active">
+							<a href="#get-album-response" aria-controls="get-album-response" role="tab" data-toggle="tab">Response</a>
+						</li>
+					</ul>
+
+					<!-- Tab panes -->
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane fade in active" id="get-album-response">
+<pre><code class="json hljs">{
+    "<span class="hljs-attribute">result</span>": <span class="hljs-value"></span>[
+        {
+            "<span class="hljs-attribute">album</span>": <span class="hljs-value"><span class="hljs-string">"graduation"</span></span>,
+            "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"good_morning"</span></span>,
+            "<span class="hljs-attribute">lyrics</span>": <span class="hljs-value"><span class="hljs-string">"Uh\nUh\nUh\nUh\n\nGood morning\nGood morning\nGood morning\nGood morning\n\nWake up, Mr. West, Mr. West\nMr. Fresh, Mr. By-Himself-He's-So-Impressed\nI mean damn, did you even see the test?\nYou got D's, motherfucker D's, Rosie Perez\nAnd yer ass barely passed any and every class\nLooking at every ass, cheated on every test\nI guess this is my dissertation\nHomie this shit is basic, welcome to graduation\n\nGood morning\nGood morning\nGood morning\nGood morning\n\nGood morning, on this day we become legendary\nEverything we dreamed of\nI'm like the fly Malcolm X, buy any jeans necessary\nDetroit Red cleaned up\nFrom the streets to the league, from a eighth to a key\nBut you graduate when you make it up outta the streets\nFrom the moments of pain, look how far we done came\nHaters saying you changed, now you doing your thang\n\nGood morning\nGood morning\nGood morniying\nGood morning\n\nGood morniying, look at the valedictorian\nScared of the future while I hop in the DeLorean\nScared to face the world, complacent career student\nSome people graduate, but be still stupid\nThey tell you read this, eat this, don't look around\nJust peep this, preachers, teach us, Jesus\nOkay look up now, they done stoled yo' streetness\nAfter all of that you received this\n\n\nGood morning\n(Hustlers, that's if you're still livin', get on down)\nEvery time that we hear them, good morning\n(Hustlers, that's if you're still livin', get on down)\nEvery time that we hear them, good morning\n(Hustlers, that's if you're still livin', get on down)\nEvery time that we hear them, good morning\n(Hustlers, that's if you're still livin', get on down)\n\n\nGet on down\nGet, get on down\nGet on down\nGet, get on down"</span></span>,
+        },
+        {
+            "<span class="hljs-attribute">album</span>": <span class="hljs-value"><span class="hljs-string">"graduation"</span></span>,
+            "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"champion"</span></span>,
+            "<span class="hljs-attribute">lyrics</span>": <span class="hljs-value"><span class="hljs-string">"Did you realize\nThat you were a champion in their eyes?\n\n\nYes I did, so I packed it up and brought it back to the crib\nJust a little somethin', show you how we live\nEverybody want it but it ain't that serious\nMmm hmm, that's that shit\nSo if you gon' do it, do it just like this\n\n\nDid you realize\nThat you were a champion in their eyes?\n\n\nYou don't see just how wild the crowd is?\nYou don't see just how fly my style is?\nI don't see why I need a stylist\nWhen I shop so much I can speak Italian\nI don't know I just want it better for my kids\nAnd I ain't sayin' we was from the projects\nBut every time I wanted, layaway or a deposit\nMy daddy'd say, \"When you see clothes, close your eyelids\"\nWe was sort of like Will Smith and his son\nIn the movie, I ain't talkin' 'bout the rich ones\n'Cause every summer he'd get some\nBrand new hare-brained scheme to get rich from\nAnd I don't know what he did for dough\nBut he'd send me back to school wit' a new wardrobe\n\n\n(And hey, hey, hey, hey)\nDid you realize\nThat you were a champion in their eyes?\n\n\nI think he did, when he packed it up and brought it back to the crib\nJust a little somethin' show you how we lived\nEverything I wanted man it seemed so serious\nMmm hmm, that's that shit\nSo if you gon' do it, do it just like this\n\n\nDid you realize\nThat you were a champion in their eyes?\n\n\nWhen it feel like living's harder than dying\nFor me giving up's way harder than trying\nLauryn Hill said her heart was in Zion\nI wish her heart still was in rhyming\n'Cause who the kids gon' listen to, huh?\nI guess me if it isn't you\nLast week, I paid a visit to the institute\nThey got the dropout keeping kids in the school\nI guess I cleaned up my act like Prince'd do\nIf not for pleasure, then at least for the principle\nThey got the CD, they got to see me\nDrop gems like I dropped out of PE\nThey used to feel invisible\nNow they know they invincible\n\n\n(Hey, hey, hey)\nDid you realize\nThat you were a champion in their eyes?\n\n\nThis is the story of a champion\nRunners on your mark and they pop the guns\nStand up, stand up, here he comes\nTell me what it takes to be number one\nTell me what it takes to be number one\nThis is the story of a champion\nRunners on your mark and they pop the guns\nStand up, stand up, here he comes\nTell me what it takes to be number one\nTell me what it takes to be number one\n\n\nDid you realize\nThat you were a champion in their eyes?\n\n\nYes I did, so I packed it up and brought it back to the crib\nJust a little somethin' show you how we live\nEverybody want it but it ain't that serious\nMmm hmm, that's that shit\nSo if you gon' do it, do it just like this\n\n\nDid you realize\nThat you were a champion in their eyes?"</span></span>,
+        },
+        {
+        ...
+    	}
+    	]
+    }
+        </code></pre>
+						</div>
+					</div>
+				</article>
+
+
+	<article id="get-track" class="api-docs-article topper">
+					<h2>Get Track</h2>
+					<hr>
+					<h3>
+						<span class="label label-info">GET</span>
+						::
+						<code>api/track/&lt;name&gt;</code>
+					</h3>
+					<h3>
+						This endpoint returns a track.
+					</h3>
+
+					<ul class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active">
+							<a href="#get-track-response" aria-controls="get-track-response" role="tab" data-toggle="tab">Response</a>
+						</li>
+					</ul>
+
+					<!-- Tab panes -->
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane fade in active" id="get-track-response">
+<pre><code class="json hljs">{
+      "<span class="hljs-attribute">album</span>": <span class="hljs-value"><span class="hljs-string">"graduation"</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"good_morning"</span></span>,
+      "<span class="hljs-attribute">lyrics</span>": <span class="hljs-value"><span class="hljs-string">"Uh\nUh\nUh\nUh\n\nGood morning\nGood morning\nGood morning\nGood morning\n\nWake up, Mr. West, Mr. West\nMr. Fresh, Mr. By-Himself-He's-So-Impressed\nI mean damn, did you even see the test?\nYou got D's, motherfucker D's, Rosie Perez\nAnd yer ass barely passed any and every class\nLooking at every ass, cheated on every test\nI guess this is my dissertation\nHomie this shit is basic, welcome to graduation\n\nGood morning\nGood morning\nGood morning\nGood morning\n\nGood morning, on this day we become legendary\nEverything we dreamed of\nI'm like the fly Malcolm X, buy any jeans necessary\nDetroit Red cleaned up\nFrom the streets to the league, from a eighth to a key\nBut you graduate when you make it up outta the streets\nFrom the moments of pain, look how far we done came\nHaters saying you changed, now you doing your thang\n\nGood morning\nGood morning\nGood morniying\nGood morning\n\nGood morniying, look at the valedictorian\nScared of the future while I hop in the DeLorean\nScared to face the world, complacent career student\nSome people graduate, but be still stupid\nThey tell you read this, eat this, don't look around\nJust peep this, preachers, teach us, Jesus\nOkay look up now, they done stoled yo' streetness\nAfter all of that you received this\n\n\nGood morning\n(Hustlers, that's if you're still livin', get on down)\nEvery time that we hear them, good morning\n(Hustlers, that's if you're still livin', get on down)\nEvery time that we hear them, good morning\n(Hustlers, that's if you're still livin', get on down)\nEvery time that we hear them, good morning\n(Hustlers, that's if you're still livin', get on down)\n\n\nGet on down\nGet, get on down\nGet on down\nGet, get on down"</span></span>,
+}</code></pre>
+						</div>
+					</div>
+				</article>
+</div>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script>
+function kill() {
+	var mediaElement = document.getElementById("bgvid");
+	mediaElement.pause();
+	mediaElement.src='';
+
+}
+
+
+</script>
+
+
+
+
+</body>
+</html>
