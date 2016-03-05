@@ -116,15 +116,16 @@ def about():
 	print('YEEZY')
 	return render_template('about.html')
 
+r = requests.get('http://www.kanyerest.xyz/api/lyrics')
+arr = r.content.lower().split(' ')
+se = set(arr)
+j = {}
+for x in se:
+	j[x] = arr.count(x)
 
 @app.route('/api/counter')
 def writeLine():
-	r = requests.get('http://www.kanyerest.xyz/api/lyrics')
-	arr = r.content.lower().split(' ')
-	se = set(arr)
-	j = {}
-	for x in se:
-		j[x] = arr.count(x)
+	print('YEEZY')
 	return jsonify(j)
 
 
