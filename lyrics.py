@@ -51,11 +51,13 @@ def getLyrics(url):
 		if kanye.tail is not None:
 			lyrics.append(kanye.tail)
 	full = "".join(lyrics).strip()
+	tit = getTitle(url)
 	result = db.kanye.insert_one({
-			"title": getLyrics(url),
+			"title": tit,
 			"album": getAlbum(url),
 			"lyrics": str(full)
 		})
+	print tit
 	return full
 
 
@@ -68,8 +70,8 @@ def getAllLyrics():
 	for yeezy in soupeezy.select('ol > li > b > a'):
 		link = urljoin(base_url, yeezy['href'])
 		links.append(link)
-	for i in range(0,10):
-	  	lyrics.append(getLyrics(links[i]))
+	for link in links:
+	  	lyrics.append(getLyrics(link))
 	   	time.sleep(1)
 	return lyrics[0]
 

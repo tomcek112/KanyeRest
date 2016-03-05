@@ -47,11 +47,17 @@ db = client.kanye
 # 	print d
 
 #db.kanye.drop()
-car = lyrics.getAllLyrics()
+
 @app.route('/')
 def index():
 	print('YEEZY')
 	return render_template('index.html')
+
+@app.route('/init')
+def init():
+	car = lyrics.getAllLyrics()
+	return 'done'
+
 
 @app.route('/api/title/<name>')
 def title(name):
@@ -79,6 +85,18 @@ def album(name):
 @app.route('/api/year/<year>')
 def year(year):
 	cur = db.kanye.find({"year": year})
+	ret = []
+	for doc in cur:
+		doc.pop("_id", None)
+		ret.append(doc)
+	if ret:
+		return json.dumps(ret)
+	else:
+		return jsonify(title= None, year=None, album=None, lyrics=None), 404
+
+@app.route('/api/all')
+def all():
+	cur = db.kanye.find()
 	ret = []
 	for doc in cur:
 		doc.pop("_id", None)
