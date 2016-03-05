@@ -11,10 +11,9 @@ import lxml.html
 from pymongo import MongoClient
 
 
-
 base_url = "http://lyrics.wikia.com"
 yeezys_page = "http://lyrics.wikia.com/wiki/Kanye_West"
-test_url = "http://lyrics.wikia.com/wiki/Jay-Z_%26_Kanye_West:Niggas_In_Paris"
+test_url = "http://lyrics.wikia.com/wiki/Kanye_West:Big_Brother"
 
 # def getAlbum(url):
 # 	doc = lxml.html.parse(url)
@@ -24,6 +23,15 @@ test_url = "http://lyrics.wikia.com/wiki/Jay-Z_%26_Kanye_West:Niggas_In_Paris"
 # 		print yeezy
 client = MongoClient()
 db = client.kanye
+
+def getTitle(url):
+	source_code = requests.get(url)
+	plain_text = source_code.text.encode("utf-8")
+	soupeezy = BeautifulSoup(plain_text, 'html.parser')
+	meta_title = soupeezy.title.string
+	meta_title = re.sub('(Kanye West).*\:', "", meta_title)
+	title = re.sub('( Lyrics - LyricWikia - Wikia)', "", meta_title)
+	return title
 
 
 def getLyrics(url):
@@ -62,4 +70,8 @@ def getAllLyrics():
 
 
 
+<<<<<<< Updated upstream
 #print getAllLyrics()
+=======
+print getTitle(test_url)
+>>>>>>> Stashed changes
