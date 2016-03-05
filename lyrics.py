@@ -15,12 +15,7 @@ base_url = "http://lyrics.wikia.com"
 yeezys_page = "http://lyrics.wikia.com/wiki/Kanye_West"
 test_url = "http://lyrics.wikia.com/wiki/Kanye_West:Big_Brother"
 
-# def getAlbum(url):
-# 	doc = lxml.html.parse(url)
-# 	#albumSen = doc.getroot().cssselect("")
-# 	wholepage = fromstring(doc)
-# 	for yeezy in wholepage.find_all(['<a href="/wiki']):
-# 		print yeezy
+
 client = MongoClient()
 db = client.kanye
 
@@ -29,10 +24,20 @@ def getTitle(url):
 	plain_text = source_code.text.encode("utf-8")
 	soupeezy = BeautifulSoup(plain_text, 'html.parser')
 	meta_title = soupeezy.title.string
-	meta_title = re.sub('(Kanye West).*\:', "", meta_title)
-	title = re.sub('( Lyrics - LyricWikia - Wikia)', "", meta_title)
+	meta_title = re.sub(r'(Kanye West).*\:', "", meta_title)
+	title = re.sub(r'( Lyrics - LyricWikia - Wikia)', "", meta_title)
+	title = re.sub(" ", "_", title)
 	return title
 
+def getAlbum(url):
+	source_code = requests.get(url)
+	plain_text = source_code.text.encode("utf-8")
+	soupeezy = BeautifulSoup(plain_text, 'html.parser')
+	album_html = str(soupeezy.select('p > i > a'))
+	album_html = re.sub(r"(\w|\s|\W)*\"\s(title)\=\"(\w|\s|\W)*\"\>", "", album_html)
+	album = re.sub(r"\s\((\d){4}\)\<\/a\>\]", "", album_html)
+	album = re.sub(" ", "_", album)
+	return album
 
 def getLyrics(url):
 	doc = lxml.html.parse(url)
@@ -47,7 +52,7 @@ def getLyrics(url):
 			lyrics.append(kanye.tail)
 	full = "".join(lyrics).strip()
 	result = db.kanye.insert_one({
-			"title": "yeezy",
+			"title": getLyrics(url),
 			"album": "yeezy",
 			"lyrics": str(full)
 		})
