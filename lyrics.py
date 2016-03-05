@@ -24,7 +24,7 @@ def getTitle(url):
 	plain_text = source_code.text.encode("utf-8")
 	soupeezy = BeautifulSoup(plain_text, 'html.parser')
 	meta_title = soupeezy.title.string
-	meta_title = re.sub(r'(Kanye West).*\:', "", meta_title)
+	meta_title = re.sub(r'(Kanye West)*.*\:', "", meta_title)
 	title = re.sub(r'( Lyrics - LyricWikia - Wikia)', "", meta_title)
 	title = re.sub(" ", "_", title)
 	return title
