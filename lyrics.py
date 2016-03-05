@@ -70,8 +70,3 @@ def getAllLyrics():
 
 
 
-<<<<<<< Updated upstream
-#print getAllLyrics()
-=======
-print getTitle(test_url)
->>>>>>> Stashed changes
