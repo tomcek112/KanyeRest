@@ -128,8 +128,9 @@ def fun():
 @app.route('/api/counter')
 def writeLine():
 	print('YEEZY')
-	j = fun()
-	return jsonify(j)
+	r = requests.get('http://www.kanyerest.xyz/static/counter.json')
+	b = r.json()
+	return jsonify(b)
 
 
 
