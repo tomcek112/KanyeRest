@@ -106,6 +106,22 @@ def all():
 	else:
 		return jsonify(title= None, year=None, album=None, lyrics=None), 404
 
+@app.route('/api/lyrics')
+def lyr():
+        cur = db.kanye.find()
+        ret = []
+        i = 0
+        for doc in cur:
+                doc.pop("_id", None)
+                ret.append(doc)
+        returner = ""
+        for track in ret:
+                returner += track['lyrics']
+        if ret:
+                return returner
+        else:
+                return jsonify(title= None, year=None, album=None, lyrics=None), 404
+
 
 if __name__ == '__main__':
     app.run(debug=True)
