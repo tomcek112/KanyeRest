@@ -106,8 +106,8 @@ def lyr():
                 return jsonify(title= None, year=None, album=None, lyrics=None), 404
 
 
-@app.route('/')
-def index():
+@app.route('/docs')
+def docs():
 	print('YEEZY')
 	return render_template('docs.html')
 
