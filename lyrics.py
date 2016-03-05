@@ -49,7 +49,7 @@ def getLyrics(url):
 		if str(kanye.tag).lower() == "br":
 			lyrics.append("\n")
 		if kanye.tail is not None:
-			lyrics.append(kanye.tail)
+			lyrics.append(kanye.tail.encode('utf8'))
 	full = "".join(lyrics).strip()
 	tit = getTitle(url)
 	result = db.kanye.insert_one({
