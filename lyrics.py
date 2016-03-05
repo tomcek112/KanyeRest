@@ -33,7 +33,7 @@ def getAlbum(url):
 	source_code = requests.get(url)
 	plain_text = source_code.text.encode("utf-8")
 	soupeezy = BeautifulSoup(plain_text, 'html.parser')
-	album_html = str(soupeezy.select('p > i > a'))
+	album_html = str(soupeezy.select('i > a'))
 	album_html = re.sub(r"(\w|\s|\W)*\"\s(title)\=\"(\w|\s|\W)*\"\>", "", album_html)
 	album = re.sub(r"\s\((\d){4}\)\<\/a\>\]", "", album_html)
 	album = re.sub(" ", "_", album)
