@@ -53,7 +53,7 @@ def getLyrics(url):
 	full = "".join(lyrics).strip()
 	result = db.kanye.insert_one({
 			"title": getLyrics(url),
-			"album": "yeezy",
+			"album": getAlbum(url),
 			"lyrics": str(full)
 		})
 	return full
@@ -69,7 +69,7 @@ def getAllLyrics():
 		link = urljoin(base_url, yeezy['href'])
 		links.append(link)
 	for i in range(0,10):
-	  	lyrics.append(getLyrics(link))
+	  	lyrics.append(getLyrics(links[i]))
 	   	time.sleep(1)
 	return lyrics[0]
 
