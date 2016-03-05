@@ -111,5 +111,10 @@ def docs():
 	print('YEEZY')
 	return render_template('docs.html')
 
+@app.route('/about')
+def about():
+	print('YEEZY')
+	return render_template('about.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
