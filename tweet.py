@@ -4,15 +4,16 @@ from pymarkovchain import MarkovChain
 import requests, time
 import re
 from daemon import runner 
+from keys import *
 
 r = requests.get('http://www.kanyerest.xyz/api/lyrics')
 #print r.content
 
 
-consumer_key = 'CONSUMER-KEY'
-consumer_secret = 'CONSUMER-SECRET'
-access_token = 'ACCESS-TOKEN'
-access_secret = 'ACCESS-SECRET'
+# consumer_key = 'CONSUMER-KEY'
+# consumer_secret = 'CONSUMER-SECRET'
+# access_token = 'ACCESS-TOKEN'
+# access_secret = 'ACCESS-SECRET'
 
 auth = OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_secret)
