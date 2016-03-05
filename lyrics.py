@@ -27,7 +27,7 @@ def getTitle(url):
 	meta_title = re.sub(r'(Kanye West)*.*\:', "", meta_title)
 	title = re.sub(r'( Lyrics - LyricWikia - Wikia)', "", meta_title)
 	title = re.sub(" ", "_", title)
-	return title
+	return title.lower()
 
 def getAlbum(url):
 	source_code = requests.get(url)
@@ -37,7 +37,7 @@ def getAlbum(url):
 	album_html = re.sub(r"(\w|\s|\W)*\"\s(title)\=\"(\w|\s|\W)*\"\>", "", album_html)
 	album = re.sub(r"\s\((\d){4}\)\<\/a\>\]", "", album_html)
 	album = re.sub(" ", "_", album)
-	return album
+	return album.lower()
 
 def getLyrics(url):
 	doc = lxml.html.parse(url)
@@ -50,7 +50,7 @@ def getLyrics(url):
 			lyrics.append("\n")
 		if kanye.tail is not None:
 			lyrics.append(kanye.tail.encode('utf8'))
-	full = "".join(lyrics).strip()
+	full = "".join(lyrics).strip() 
 	tit = getTitle(url)
 	result = db.kanye.insert_one({
 			"title": tit,
