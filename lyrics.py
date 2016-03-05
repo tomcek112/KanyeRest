@@ -1,3 +1,4 @@
+
 # import urllib
 # import sys
 # import subprocess
@@ -7,6 +8,7 @@ import requests
 import time
 import re
 import lxml.html
+from pymongo import MongoClient
 
 
 
@@ -20,7 +22,8 @@ test_url = "http://lyrics.wikia.com/wiki/Jay-Z_%26_Kanye_West:Niggas_In_Paris"
 # 	wholepage = fromstring(doc)
 # 	for yeezy in wholepage.find_all(['<a href="/wiki']):
 # 		print yeezy
-
+client = MongoClient()
+db = client.kanye
 
 
 def getLyrics(url):
@@ -35,6 +38,11 @@ def getLyrics(url):
 		if kanye.tail is not None:
 			lyrics.append(kanye.tail)
 	full = "".join(lyrics).strip()
+	result = db.kanye.insert_one({
+			"title": "yeezy",
+			"album": "yeezy",
+			"lyrics": str(full)
+		})
 	return full
 
 
@@ -54,4 +62,4 @@ def getAllLyrics():
 
 
 
-print getAllLyrics()
+#print getAllLyrics()

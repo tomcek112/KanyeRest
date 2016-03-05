@@ -5,6 +5,7 @@ import requests
 import json
 from pymongo import MongoClient
 from bson import json_util
+import lyrics as lyrics
 
 
 
@@ -33,20 +34,20 @@ db = client.kanye
 
 # 		}
 # 	)
-coolStuff = db.kanye.find()
-arr = []
+# coolStuff = db.kanye.find()
+# arr = []
 
-for doc in coolStuff:
-	arr.append(doc)
+# for doc in coolStuff:
+# 	arr.append(doc)
 
 
-foo = db.kanye.find({"title": "test"})
-for d in foo:
-	print(type(d))
-	print d
+# foo = db.kanye.find({"title": "test"})
+# for d in foo:
+# 	print(type(d))
+# 	print d
 
 #db.kanye.drop()
-
+car = lyrics.getAllLyrics()
 @app.route('/')
 def index():
 	print('YEEZY')
