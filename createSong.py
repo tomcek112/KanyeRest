@@ -1,10 +1,11 @@
-from pymarkovchain import MarkovChain
+from songer import MarkovChain
 import requests, time
 import re
 
 r = requests.get('http://www.kanyerest.xyz/api/lyrics')
 mc = MarkovChain("")
 mc.generateDatabase(r.content)
+
 
 def writeLine():
 	tweet = mc.generateString()
@@ -34,3 +35,4 @@ def printSong(n):
 		lyrics.append(line[0])
 		lyrics.append(line[1])
 	return lyrics
+

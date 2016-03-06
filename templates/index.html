@@ -1,8 +1,9 @@
 <html>
 <head>
 	<link href='https://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+	<link rel="shortcut icon" type="image/png" href="http://www.kanyerest.xyz/static/images/favicon.png"/>
 	<style>
-	video#bgvid { 
+	#bgvid { 
     position: fixed;
     top: 50%;
     left: 50%;
@@ -77,6 +78,36 @@
 		margin-left: 40.7vw;
 		margin-top: 29vh;
 	}
+	#slideout {
+  position: fixed;
+  top: 99vh;
+  right: -4vw;
+  -webkit-transition-duration: 2s;
+  -moz-transition-duration: 2s;
+  -o-transition-duration: 2s;
+  transition-duration: 2s;
+}
+#slideout_inner {
+  position: fixed;
+  top: 99vh;
+  right: -4vw;
+  -webkit-transition-duration: 2s;
+  -moz-transition-duration: 2s;
+  -o-transition-duration: 2s;
+  transition-duration: 2s;
+}
+#slideout:hover {
+  right: -7px;
+  top: 89vh;
+}
+#slideout:hover #slideout_inner {
+  right: -7px;
+  top: 89vh;
+}
+#beep-one{
+	display: hidden;
+}
+
 	</style>
 
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -108,12 +139,15 @@
 <p class="desc"><span class="white smaller">A fully RESTful API for everything Kanye West</span></p>
 <p class="but"><a href="https://twitter.com/RestTheKanye" onClick="kill()" role="button" class="btn btn-danger btn-lg" >Follow Kanye Rest on Twitter!</a></p>
 
-
-<video autoplay muted poster="../static/images/kanye.jpg" id="bgvid">
-    <source src="../static/images/kanye2.webm" type="video/webm">
-    <source src="../static/images/kanye2.mp4" type="video/mp4">
+<video autoplay muted loop poster="../static/images/kanye.jpg" id="bgvid">
+    <source src="http://h264-aws.vevo.com/v3/h264/2015/04/USUV71001422/16900998-d4a2-4217-a4dd-af053663b245/usuv71001422_high_1280x720_h264_2000_aac_128.mp4" type="video/mp4">
 </video>
-
+<div id="slideout">
+	<a href="/kd"><img width="100px" height="120px" src="http://40.media.tumblr.com/7661bc36ea8dbdb8384d29288c90adf1/tumblr_nh9cz35tS51u6hgkxo1_500.png"></a>
+  <div id="slideout_inner">
+  </div>
+</div>
+<audio src="http://www.kanyerest.xyz/static/audio/six.ogg" type="audio/ogg" id="beep-one"></audio>
 
 <!-- </div>
 <div class="row">
@@ -136,7 +170,11 @@ function kill() {
 
 }
 
-
+var beepOne = $("#beep-one")[0];
+$("#slideout")
+	.mouseenter(function() {
+		setTimeout(function(){beepOne.play();}, 500);
+	});
 </script>
 
 

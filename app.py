@@ -6,6 +6,7 @@ import json
 from pymongo import MongoClient
 from bson import json_util
 import lyrics as lyrics
+# from createSong import printSong
 
 
 
@@ -15,38 +16,7 @@ app.config.from_object(__name__)
 
 client = MongoClient()
 db = client.kanye
-# result = db.kanye.insert_one(
-# 		{
-# 			"title": "test",
-# 			"year": "test",
-# 			"album": "test",
-# 			"lyrics": "bla bla bla"
 
-# 		}
-# 	)
-
-# result = db.kanye.insert_one(
-# 		{
-# 			"title": "test 2",
-# 			"year": "test 2",
-# 			"album": "test",
-# 			"lyrics": "bla bla bla"
-
-# 		}
-# 	)
-# coolStuff = db.kanye.find()
-# arr = []
-
-# for doc in coolStuff:
-# 	arr.append(doc)
-
-
-# foo = db.kanye.find({"title": "test"})
-# for d in foo:
-# 	print(type(d))
-# 	print d
-
-#db.kanye.drop()
 
 @app.route('/')
 def index():
@@ -116,6 +86,11 @@ def about():
 	print('YEEZY')
 	return render_template('about.html')
 
+@app.route('/kd')
+def kd():
+	print('YEEZY')
+	return render_template('kd.html')
+
 def fun():
 	r = requests.get('http://www.kanyerest.xyz/api/lyrics')
 	arr = r.content.lower().split(' ')
@@ -125,12 +100,24 @@ def fun():
 		j[x] = arr.count(x)
 	return j
 
+# @app.route('/serenade')
+# def serderderder():
+# 	print('test')
+# 	c = printSong(8)
+# 	return render_template('serenade.html', c=c)
+
 @app.route('/api/counter')
 def writeLine():
 	print('YEEZY')
 	r = requests.get('http://www.kanyerest.xyz/static/counter.json')
 	b = r.json()
 	return jsonify(b)
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+
 
 
 
