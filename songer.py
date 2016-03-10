@@ -5,7 +5,6 @@ try:
 except ImportError:
     import pickle
 import logging
-import os
 import random
 import re
 from collections import defaultdict
@@ -45,8 +44,6 @@ def _wordIter(text, separator='.'):
 class MarkovChain(object):
     def __init__(self, dbFilePath=None):
         self.dbFilePath = dbFilePath
-        if not dbFilePath:
-            self.dbFilePath = os.path.join(os.path.dirname(__file__), "markovdb")
         self.db = _db_factory()
 
     def generateDatabase(self, textSample, sentenceSep='[.!?\n]', n=2):

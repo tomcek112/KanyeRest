@@ -6,6 +6,7 @@ import json
 from pymongo import MongoClient
 from bson import json_util
 import lyrics as lyrics
+import re
 # from createSong import printSong
 
 
@@ -70,7 +71,15 @@ def lyr():
         returner = ""
         for track in ret:
                 returner += track['lyrics']
+        returner = re.sub('\n\n\n', '. ', returner)
+        returner = re.sub('\n\n', '. ', returner)
+        returner = re.sub('\. \n', '. ', returner)
+        returner = re.sub('\n', '. ', returner)
+        returner = re.sub('\?.', '? ', returner)
+        returner = re.sub('\!.', '! ', returner)
+        #returner = returner.replace("'", "")
         if ret:
+
                 return returner
         else:
                 return jsonify(title= None, year=None, album=None, lyrics=None), 404
