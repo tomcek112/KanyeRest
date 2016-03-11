@@ -24,12 +24,11 @@ r = requests.get('http://www.kanyerest.xyz/api/lyrics')
 w_list = [fixCaps(w) for w in re.findall(r"[\w']+|[.,!?;]", r.content)]
 
 def wordlist(n):
-    if n not in range(0, 5):
-        n = random.randint(0, 5)
-    words = re.findall(r"[\w']+|[.,!?;]", r.content)
-    i = int(math.floor((len(words)*(n/(float(6))))))
-    j = int(math.floor((len(words)*(float(n+1)/(float(6))))))
-    return w_list[i:j]
+    if n not in range(0, 34):
+        n = random.randint(0, 34)
+    i = int(math.floor((len(w_list)*(n/(float(35))))))
+    j = int(math.floor((len(w_list)*(float(n+1)/(float(35))))))
+    return w_list
 
 def addItemToTempMapping(history, word):
     global tempMapping
@@ -74,8 +73,8 @@ def next(prevList):
             retval = k
     return retval
 
+buildMapping(wordlist(random.randint(0, 2)))
 def genSentence():
-    buildMapping(wordlist(random.randint(0, 2)))
     curr = random.choice(sen_starters)
     sent = curr.capitalize()
     prevList = [curr]
@@ -88,9 +87,4 @@ def genSentence():
             sent += " "
         sent+= re.sub(r'\,', '', curr)
     return sent
-
-# i = 0
-# while i < 8:
-#     print genSentence()
-#     i+=1
 

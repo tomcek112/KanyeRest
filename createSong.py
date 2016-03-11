@@ -12,29 +12,29 @@ def writeLine():
 	tweet = genSentence()
 	return tweet
 
-def createRhymePair():
-	song = []
-	line1 = genSentence()[:-1]
-	line2 = genSentence()[:-1]
-	while line2[-2:] != line1[-2:]:
-		line1 = genSentence()[:-1]
-		line2 = genSentence()[:-1]
-	song.append(line1)
-	song.append(line2)
-	return song
+# def createRhymePair():
+# 	song = []
+# 	line1 = genSentence()[:-1]
+# 	line2 = genSentence()[:-1]
+# 	while line2[-2:] != line1[-2:]:
+# 		line1 = genSentence()[:-1]
+# 		line2 = genSentence()[:-1]
+# 	song.append(line1)
+# 	song.append(line2)
+# 	return song
 
-def createRhymePair2():
-	lines = []
-	pair = []
-	for i in range(0, 9):
-		lines.append(genSentence()[:-1])
-	comp_line = genSentence()[:-1]
-	while not pair:
-		for line in lines:
-			if line[:-2] == comp_line[:-2]:
-				pair.append(line)
-				pair.append(comp_line)
-				return pair
+# def createRhymePair2():
+# 	lines = []
+# 	pair = []
+# 	for i in range(0, 9):
+# 		lines.append(genSentence()[:-1])
+# 	comp_line = genSentence()[:-1]
+# 	while not pair:
+# 		for line in lines:
+# 			if line[:-2] == comp_line[:-2]:
+# 				pair.append(line)
+# 				pair.append(comp_line)
+# 				return pair
 
 
 def createSong(n):
@@ -92,6 +92,8 @@ def createLongSonger():
 			meh.append(muh[1])
 		i += 1
 	return meh
+
+print createLongSonger()
 
 
 # print('########################################')
