@@ -1,13 +1,13 @@
 import os
 import math
-from flask import Flask, jsonify, render_template, request, session, g, redirect, url_for, abort, flash, make_response
+from flask import Flask, jsonify, render_template, request, session, g, redirect, url_for, abort, flash, make_response, Response
 import requests
 import json
 from pymongo import MongoClient
 from bson import json_util
 import lyrics as lyrics
 import re
-# from createSong import printSong
+from createSong import createLongSonger
 
 
 
@@ -128,10 +128,21 @@ def page_not_found(e):
 
 
 
+@app.route('/test')
+def render_large_template():
+    c = createLongSonger()
+    return render_template('serenade.html', c=c)
+
+@app.route('/serenade')
+def serenade():
+	c = []
+	return render_template('frame.html', c=c)
+
+
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=8000)
 
 
 

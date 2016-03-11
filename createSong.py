@@ -50,4 +50,54 @@ def printSong(n):
 		lyrics.append(line[1])
 	return lyrics
 
-print createRhymePair()
+
+
+def createSonger():
+	song = []
+	match = []
+	i=0
+	matches=[]
+	while(i<8):
+		song.append(writeLine())
+		i += 1 
+	
+	pieces = []
+
+	for wis in song:
+		wis = wis[:-1]
+		pieces.append(wis[-2:])
+
+
+	match = [x for x in pieces if pieces.count(x) >= 2]
+	
+	a=0
+	if match:
+		while(a<8):
+			if(song[a][-3:-1] == match[0]):
+				matches.append(song[a])
+			a += 1
+
+	return matches
+
+
+#print createSonger()
+def createLongSonger():
+	meh = []
+	i = 0
+	while(len(meh)<8):
+		muh = createSonger()
+		if muh:
+			#print(muh)
+			meh.append(muh[0])
+			meh.append(muh[1])
+		i += 1
+	return meh
+
+
+# print('########################################')
+
+# #print(str(meh))
+# for o in meh:
+# 	print o
+
+

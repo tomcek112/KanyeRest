@@ -82,11 +82,15 @@
 		margin-top: 90px;
 		margin-bottom: 40px;
 	}
-	.desc-cont{
-		margin-top: 2vw;
-		text-align: center;
-
+	iframe{
+		width: 100vw;
+		height: 100vh;
+		border: 0px;
+		background-image: url("http://jimpunk.net/Loading/wp-content/uploads/loading2.gif");   
+    	background-repeat: no-repeat;
+    	background-position: 50% 50%;
 	}
+
 	</style>
 
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -112,33 +116,8 @@
     </div><!--/.nav-collapse -->
   </div>
 </div>
-<img style="-webkit-user-select: none; max-width: 7680px;" class="topper" src="https://pbs.twimg.com/profile_banners/706117375863689217/1457193092/1500x500">
-<div class="row">
-	<div class="col-lg-12" style="text-align: center;">{% for w in c %}<p>{{w}}</p>{%endfor%}</div>
-</div>
-<br>
-<div class="container marketing">
-	<hr>
-	<div class="desc-cont">
-		<h4><small>
-		All lyrics owned by Kanye West <br>
-		Code licensed under <a href="http://www.dbad-license.org/">Don't be a dick licence.</a><br>
-		OpenSource code available on <a href="https://github.com/tomcek112/KanyeRest">GitHub.</a><br>
-		© 2016 - kanyerest.xyz
-		</small></h4>
-	</div>
-</div>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script>
-function kill() {
-	var mediaElement = document.getElementById("bgvid");
-	mediaElement.pause();
-	mediaElement.src='';
 
-}
-
-
-</script>
+<iframe src='../test'></iframe>
 
 
 
