@@ -5,9 +5,9 @@ import requests
 import json
 from pymongo import MongoClient
 from bson import json_util
-import lyrics as lyrics
+import lib.lyrics 
 import re
-from createSong import createLongSonger
+from lib.createSong import createLongSonger
 
 
 
